@@ -35,7 +35,8 @@ load_page = True
 
 
 #Establish the EIP connection with the PLC
-EIP_instance = omron.n_series.NSeriesEIP()
+#EIP_instance = omron.n_series.NSeriesEIP()
+EIP_instance = omron.n_series.NSeries()
 EIP_instance.connect_explicit('10.0.0.50')
 EIP_instance.register_session()
 EIP_instance.update_variable_dictionary()
@@ -80,7 +81,7 @@ while not rospy.is_shutdown():
 	problems['PLC_curtain_problem'] = not EIP_instance.read_variable('PLC_curtain_problem') #Inverted true
 	PLC_reset = EIP_instance.read_variable('PLC_reset')
 
-	print(str(PLC_safety_ok))
+	#print(str(PLC_safety_ok))
 
 	#Updates problems. Detected and not active mean that even if the alarm is not active, it was and it haven't been reseted yet
 	if problems['PLC_Estop_problem']:

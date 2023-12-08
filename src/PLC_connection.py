@@ -22,7 +22,7 @@ EIP_instance.update_variable_dictionary()
 
 while not rospy.is_shutdown(): 
 	PLC_read = EIP_instance.read_variable('ROS_read_cplc')
-	print(str(PLC_read))
+	#print(str(PLC_read))
 	#PLC_message = Bool()
 	#PLC_message.data = PLC_read
 	#publisher.publish(PLC_message)
